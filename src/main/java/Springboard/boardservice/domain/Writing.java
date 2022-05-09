@@ -11,8 +11,6 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
-@Builder
 @EntityListeners(AuditingEntityListener.class)
 public class Writing {
 
@@ -34,9 +32,15 @@ public class Writing {
     private LocalDateTime createDate;
 
     @LastModifiedDate
-    @Column
     private LocalDateTime modifiedDate;
 
+    @Builder
+    public Writing(Long id, String title, String writer, String content){
+        this.id = id;
+        this.title = title;
+        this.writer = writer;
+        this.content = content;
+    }
 }
 
 

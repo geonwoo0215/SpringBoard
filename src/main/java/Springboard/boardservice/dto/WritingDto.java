@@ -10,8 +10,6 @@ import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
-@Builder
-@AllArgsConstructor
 public class WritingDto {
     private Long id;
     private String title;
@@ -28,5 +26,15 @@ public class WritingDto {
                 .content(content)
                 .build();
         return build;
+    }
+
+    @Builder
+    public WritingDto(Long id, String title, String writer, String content, LocalDateTime createDate, LocalDateTime modifiedDate) {
+        this.id = id;
+        this.title = title;
+        this.writer = writer;
+        this.content = content;
+        this.createDate = createDate;
+        this.modifiedDate = modifiedDate;
     }
 }
