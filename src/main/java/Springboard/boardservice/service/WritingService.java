@@ -12,14 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class WritingService {
 
-
-    private WritingRepository writingRepository;
-
-    public WritingService(WritingRepository writingRepository) {
-        this.writingRepository = writingRepository;
-    }
+    private final WritingRepository writingRepository;
 
     @Transactional
     public Long save(WritingDto writingDto){

@@ -10,13 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class AccountController {
 
-    private WritingService writingService;
+    private final WritingService writingService;
 
-    public AccountController(WritingService writingService) {
-        this.writingService = writingService;
-    }
 
     @GetMapping("/")
     public String list(Model model) {
