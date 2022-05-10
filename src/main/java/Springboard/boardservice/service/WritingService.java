@@ -54,4 +54,9 @@ public class WritingService {
         return writingDto;
     }
 
+    @Transactional
+    public void deletePost(Long id) {
+        writingRepository.deleteById(id);
+    }
+
 }

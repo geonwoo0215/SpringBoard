@@ -5,9 +5,7 @@ import Springboard.boardservice.service.WritingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -55,11 +53,16 @@ public class AccountController {
         return "edit";
     }
 
-    @GetMapping("/post/edit/{id}")
+    @PutMapping("/post/edit/{id}")
     public String update(WritingDto writingDto) {
         writingService.save(writingDto);
         return "redirect:/";
     }
 
+    @DeleteMapping("/post/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        writingService.deletePost(id);
+        return "redirect:/";
+    }
 }
 
