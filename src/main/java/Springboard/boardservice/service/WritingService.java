@@ -19,10 +19,7 @@ public class WritingService {
 
     @Transactional
     public Long save(WritingDto writingDto){
-        Writing writing = writingDto.toEntity();
-        writingRepository.save(writing);
-
-        return writing.getId();
+        return writingRepository.save(writingDto.toEntity()).getId();
     }
 
     @Transactional
@@ -43,5 +40,18 @@ public class WritingService {
         return writingDtoList;
     }
 
+    @Transactional
+    public WritingDto getPost(Long id) {
+        Writing writing = writingRepository.findById(id).get();
+
+        WritingDto writingDto = WritingDto.builder()
+                .id(writing.getId())
+                .writer(writing.getWriter())
+                .title(writing.getTitle())
+                .content(writing.getContent())
+                .createDate(writing.getCreateDate())
+                .build();
+        return writingDto;
+    }
 
 }

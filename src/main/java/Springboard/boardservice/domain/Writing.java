@@ -18,17 +18,17 @@ public class Writing {
     @GeneratedValue
     private Long id;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50,nullable = false)
     private String title;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50,nullable = false)
     private String writer;
 
     @Column(nullable = false)
     private String content;
 
     @CreatedDate
-    @Column
+    @Column(updatable = false)
     private LocalDateTime createDate;
 
     @LastModifiedDate

@@ -9,6 +9,7 @@ spring:
     hibernate:
       ddl-auto: create
     properties:
+      open-in-view: false
       hibernate:
         #show_sql: true
         format_sql: true
