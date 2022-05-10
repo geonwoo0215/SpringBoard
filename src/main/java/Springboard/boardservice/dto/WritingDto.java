@@ -14,6 +14,7 @@ public class WritingDto {
     private String title;
     private String writer;
     private String content;
+    private int view;
     private LocalDateTime createDate;
     private LocalDateTime modifiedDate;
 
@@ -23,16 +24,18 @@ public class WritingDto {
                 .title(title)
                 .writer(writer)
                 .content(content)
+                .view(view)
                 .build();
         return build;
     }
 
     @Builder
-    public WritingDto(Long id, String title, String writer, String content, LocalDateTime createDate, LocalDateTime modifiedDate) {
+    public WritingDto(Long id, String title, String writer, String content, int view, LocalDateTime createDate, LocalDateTime modifiedDate) {
         this.id = id;
         this.title = title;
         this.writer = writer;
         this.content = content;
+        this.view = view;
         this.createDate = createDate;
         this.modifiedDate = modifiedDate;
     }

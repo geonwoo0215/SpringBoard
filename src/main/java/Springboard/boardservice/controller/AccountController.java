@@ -49,6 +49,7 @@ public class AccountController {
     @GetMapping("/post/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
         WritingDto writingDto = writingService.getPost(id);
+        writingService.updateView(id);
         model.addAttribute("post", writingDto);
         return "edit";
     }
@@ -64,5 +65,7 @@ public class AccountController {
         writingService.deletePost(id);
         return "redirect:/";
     }
+
+
 }
 

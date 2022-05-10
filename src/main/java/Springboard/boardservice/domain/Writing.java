@@ -27,6 +27,10 @@ public class Writing {
     @Column(nullable = false)
     private String content;
 
+    @Column
+    private int view;
+
+
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime createDate;
@@ -35,11 +39,12 @@ public class Writing {
     private LocalDateTime modifiedDate;
 
     @Builder
-    public Writing(Long id, String title, String writer, String content){
+    public Writing(Long id, String title, String writer, String content, int view){
         this.id = id;
         this.title = title;
         this.writer = writer;
         this.content = content;
+        this.view = view;
     }
 }
 

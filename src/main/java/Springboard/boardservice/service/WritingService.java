@@ -59,4 +59,9 @@ public class WritingService {
         writingRepository.deleteById(id);
     }
 
+    @Transactional
+    public int updateView(Long id){
+        return writingRepository.updateView(id);
+    }
+
 }
