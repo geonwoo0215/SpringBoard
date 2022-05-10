@@ -55,5 +55,11 @@ public class AccountController {
         return "edit";
     }
 
+    @GetMapping("/post/edit/{id}")
+    public String update(WritingDto writingDto) {
+        writingService.save(writingDto);
+        return "redirect:/";
+    }
+
 }
 
