@@ -48,5 +48,12 @@ public class AccountController {
         return "detail";
     }
 
+    @GetMapping("/post/edit/{id}")
+    public String edit(@PathVariable("id") Long id, Model model) {
+        WritingDto writingDto = writingService.getPost(id);
+        model.addAttribute("post", writingDto);
+        return "edit";
+    }
+
 }
 
