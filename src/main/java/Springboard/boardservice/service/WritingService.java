@@ -32,6 +32,7 @@ public class WritingService {
                     .id(writing.getId())
                     .writer(writing.getWriter())
                     .title(writing.getTitle())
+                    .view(writing.getView())
                     .content(writing.getContent())
                     .createDate(writing.getCreateDate())
                     .build();
@@ -48,6 +49,7 @@ public class WritingService {
                 .id(writing.getId())
                 .writer(writing.getWriter())
                 .title(writing.getTitle())
+                .view(writing.getView())
                 .content(writing.getContent())
                 .createDate(writing.getCreateDate())
                 .build();

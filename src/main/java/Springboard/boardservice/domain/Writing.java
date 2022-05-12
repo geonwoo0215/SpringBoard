@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EntityListeners(AuditingEntityListener.class)
 public class Writing {
@@ -18,10 +19,10 @@ public class Writing {
     @GeneratedValue
     private Long id;
 
-    @Column(length = 50,nullable = false)
+    @Column(length = 50, nullable = false)
     private String title;
 
-    @Column(length = 50,nullable = false)
+    @Column(length = 50, nullable = false)
     private String writer;
 
     @Column(nullable = false)
@@ -29,7 +30,6 @@ public class Writing {
 
     @Column
     private int view;
-
 
     @CreatedDate
     @Column(updatable = false)
