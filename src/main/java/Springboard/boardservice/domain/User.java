@@ -1,9 +1,6 @@
 package Springboard.boardservice.domain;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,20 +9,25 @@ import javax.persistence.Id;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+@Builder
+@AllArgsConstructor
+public class User {
 
     @Id
     @GeneratedValue
     private Long id;
 
     @Column
+    private String email;
+
+    @Column
     private String password;
 
     @Column
-    private String nickName;
+    private String role;
 
-    @Column
-    private String email;
+
 
 }
