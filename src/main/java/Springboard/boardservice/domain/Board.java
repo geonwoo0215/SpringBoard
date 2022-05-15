@@ -12,40 +12,30 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EntityListeners(AuditingEntityListener.class)
-public class Writing {
+@Table(name = "board")
+public class Board {
 
     @Id
     @GeneratedValue
+    @Column(name = "board_id")
     private Long id;
 
     @Column(length = 50, nullable = false)
     private String title;
 
-    @Column(length = 50, nullable = false)
-    private String writer;
-
     @Column(nullable = false)
     private String content;
 
-    @Column
-    private int view;
-
     @CreatedDate
     @Column(updatable = false)
-    private LocalDateTime createDate;
+    private LocalDateTime createdDate;
 
     @LastModifiedDate
     private LocalDateTime modifiedDate;
 
-    @Builder
-    public Writing(Long id, String title, String writer, String content, int view){
-        this.id = id;
-        this.title = title;
-        this.writer = writer;
-        this.content = content;
-        this.view = view;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private User member;
 }
 
 
