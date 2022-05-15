@@ -29,7 +29,7 @@ public class User {
     private String password;
     private String email;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<Board> board = new ArrayList<>();
 
     @Builder
