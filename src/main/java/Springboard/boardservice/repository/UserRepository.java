@@ -1,34 +1,12 @@
 package Springboard.boardservice.repository;
 
 import Springboard.boardservice.domain.User;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Optional;
 
-@Repository
-@RequiredArgsConstructor
-public class UserRepository {
-
-    private final EntityManager em;
-
-    public void saveUser(User user){
-        em.persist(user);
-    }
-
-    public User findOne(Long id){
-        return em.find(User.class, id);
-    }
-
-    public List<User> findAll(){
-        return em.createQuery("select  m from Member m")
-                .getResultList();
-    }
-
-    public List<User> findByName(String username) {
-        return em.createQuery("select m from User m where m.username = :username", User.class)
-                .setParameter("username", username)
-                .getResultList();
-    }
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByUsername(String username);
+    List<User> findAll();
 }

@@ -23,9 +23,9 @@ public class User {
     @Pattern(regexp = "^[a-zA-Z0-9]{3,12}$", message = "아이디를 3~12자로 입력해주세요,")
     private String username;
 
-    @NotBlank(message = "비밀번호를 입력해주세요.")
-    @Pattern(regexp = "^[a-zA-Z0-9]{3,12}$", message = "비밀번호를 3~12자로 입력해주세요" )
-    @Column
+//    @NotBlank(message = "비밀번호를 입력해주세요.")
+//    @Pattern(regexp = "^[a-zA-Z0-9]{3,12}$", message = "비밀번호를 3~12자로 입력해주세요" )
+//    @Column
     private String password;
     private String email;
 
@@ -38,8 +38,5 @@ public class User {
         this.password = password;
         this.email = email;
     }
-
-
-
 
 }
