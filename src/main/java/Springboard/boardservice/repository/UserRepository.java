@@ -9,11 +9,11 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class MemberRepository {
+public class UserRepository {
 
     private final EntityManager em;
 
-    public void saveMember(User user){
+    public void saveUser(User user){
         em.persist(user);
     }
 
