@@ -27,8 +27,8 @@ public class MemberController {
         return "member/memberLoginForm";
     }
 
-    @GetMapping("/memberJoinForm")
-    public String createUser(@ModelAttribute MemberDto member) {
+    @PostMapping("/memberJoinForm")
+    public String createMember(@ModelAttribute MemberDto member) {
         memberService.joinUser(member);
         return "redirect:/";
     }
