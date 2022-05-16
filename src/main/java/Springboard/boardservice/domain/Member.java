@@ -12,8 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "user")
-public class User {
+@Table(name = "member")
+public class Member {
 
     @Id @GeneratedValue
     @Column(name = "member_id")
@@ -33,7 +33,7 @@ public class User {
     private List<Board> board = new ArrayList<>();
 
     @Builder
-    public User(String username,String password, String email){
+    public Member(String username, String password, String email){
         this.username = username;
         this.password = password;
         this.email = email;

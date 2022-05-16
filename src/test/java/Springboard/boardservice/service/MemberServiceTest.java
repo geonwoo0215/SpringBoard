@@ -1,31 +1,31 @@
 package Springboard.boardservice.service;
 
-import Springboard.boardservice.domain.User;
-import Springboard.boardservice.repository.UserRepository;
+import Springboard.boardservice.domain.Member;
+import Springboard.boardservice.repository.MemberRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class UserServiceTest {
+public class MemberServiceTest {
 
     @Autowired
-    BoardService boardService;
+    MemberService boardService;
     @Autowired
-    UserRepository userRepository;
+    MemberRepository userRepository;
 
     @Test
     void 회원_가입(){
 
-        User user = User.builder()
+        Member member = Member.builder()
                 .username("mins")
                 .password("1234")
                 .email("email")
                 .build();
 
-        Long joinId = boardService.join(user);
+        Long joinId = boardService.joinUser(member);
 
-        Assertions.assertEquals(user, userRepository.findOne(joinId));
+        Assertions.assertEquals(member, userRepository.findAll(joinId));
     }
 }

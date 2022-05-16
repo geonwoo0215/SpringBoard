@@ -1,6 +1,6 @@
 package Springboard.boardservice.dto;
 
-import Springboard.boardservice.domain.User;
+import Springboard.boardservice.domain.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserDto {
+public class MemberDto {
 
     private Long id;
     private String username;
@@ -17,14 +17,14 @@ public class UserDto {
     private String email;
 
     @Builder
-    public UserDto(String username, String password, String email) {
+    public MemberDto(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
     }
 
-    public User toEntity(){
-        return User.builder()
+    public Member toEntity(){
+        return Member.builder()
                 .username(username)
                 .password(password)
                 .email(email)

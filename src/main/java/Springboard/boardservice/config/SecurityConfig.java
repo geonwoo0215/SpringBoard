@@ -1,6 +1,6 @@
 package Springboard.boardservice.config;
 
-import Springboard.boardservice.service.BoardService;
+import Springboard.boardservice.service.MemberService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final BoardService boardService;
+    private final MemberService boardService;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -34,20 +34,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/userinfo").hasRole("USER")
+                .antMatchers("/member/memberinfo").hasRole("USER")
                 .antMatchers("/**").permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/user/userLoginForm")
-                .defaultSuccessUrl("/user/userLoginResult")
+                .loginPage("/member/memberLoginForm")
+                .defaultSuccessUrl("/member/memberLoginResult")
                 .permitAll()
                 .and()
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-                .logoutSuccessUrl("/user/logoutResult")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
+                .logoutSuccessUrl("/member/logoutResult")
                 .invalidateHttpSession(true)
                 .and()
-                .exceptionHandling().accessDeniedPage("/user/denied");
+                .exceptionHandling().accessDeniedPage("/memberF/denied");
     }
 
     @Override
